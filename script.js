@@ -15,23 +15,38 @@ var sidebarOpen = false;
 function toggleSidebar() {
 	if(sidebarOpen) {
 		// hide it
+		// var btn = document.getElementById("mybtn");  
+		// btn.parentNode.removeChild(btn);
+		sidebarOpen = false;
 		var el = document.getElementById('mySidebar');
 		el.parentNode.removeChild(el);
-		sidebarOpen = false;
-	}
-	else {
-		var sidebar = document.createElement('div');
+		var el1 = document.getElementById('mySidebar1');
+		el1.parentNode.removeChild(el1);
+		
+		
+	} else {
+		// var btn = document.createElement("BUTTON");  
+		// btn.id = "mybtn";
+		// btn.style.cssText = "\
+		//  	position:fixed;\
+		//  	top:0px;
+		//  	background:red;\
+		// 	z-index:999999;\
+
+		// ";
+		// document.body.appendChild(btn);   
+
+		var sidebar = document.createElement('BUTTON');
 		sidebar.id = "mySidebar";
 		sidebar.innerHTML = "\
-			<h1>Hello</h1>\
-			World!\
+			<h1>Hello World!</h1>\
 		";
 		sidebar.style.cssText = "\
 			position:fixed;\
 			top:0px;\
 			left:50%;\
 			width:50%;\
-			height:100%;\
+			height:50%;\
 			color: white;\
 			opacity: 0.5;\
 			background:black;\
@@ -39,7 +54,34 @@ function toggleSidebar() {
 			box-shadow:inset 0 0 1em black;\
 			z-index:999999;\
 		";
-		document.body.appendChild(sidebar);
+		
+
+		var sidebar1 = document.createElement('BUTTON');
+		sidebar1.id = "mySidebar1";
+		sidebar1.innerHTML = "\
+			<h1>Hello World!</h1>\
+		";
+		sidebar1.style.cssText = "\
+			position:fixed;\
+			top:500px;\
+			left:50%;\
+			width:50%;\
+			height:50%;\
+			color: white;\
+			opacity: 0.5;\
+			background:red;\
+			border-radius:50px;\
+			box-shadow:inset 0 0 1em black;\
+			z-index:999999;\
+		";
+		
+		var docFrag = document.createDocumentFragment();
+		docFrag.id = "wholething";
+		docFrag.appendChild(sidebar);
+		docFrag.appendChild(sidebar1);
+		document.body.appendChild(docFrag);
+		
 		sidebarOpen = true;
 	}
 }
+
