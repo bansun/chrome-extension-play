@@ -12,6 +12,9 @@ chrome.extension.onRequest.addListener(handleRequest);
 
 /*Small function wich create a sidebar(just to illustrate my point)*/
 var sidebarOpen = false;
+var pfx = ["webkit", "moz", "MS", "o", ""];
+var clicked = false;
+
 function toggleSidebar() {
 	if(sidebarOpen) {
 		// hide it
@@ -25,33 +28,33 @@ function toggleSidebar() {
 		
 		
 	} else {
-		// var btn = document.createElement("BUTTON");  
-		// btn.id = "mybtn";
-		// btn.style.cssText = "\
-		//  	position:fixed;\
-		//  	top:0px;
-		//  	background:red;\
-		// 	z-index:999999;\
-
-		// ";
-		// document.body.appendChild(btn);   
-
 		var sidebar = document.createElement('BUTTON');
+			sidebar.onclick = function() {
+          //Your code here
+          	if (clicked) {
+				sidebar.style.backgroundColor = "red";
+				sidebar1.style.visibility = "visible";
+          		clicked = false;
+          	} else {
+				sidebar1.style.visibility = "hidden";
+          		clicked = true;
+          	}
+    	}
 		sidebar.id = "mySidebar";
 		sidebar.innerHTML = "\
-			<h1>Hello World!</h1>\
+			<h1>1</h1>\
 		";
 		sidebar.style.cssText = "\
 			position:fixed;\
-			top:0px;\
-			left:50%;\
-			width:50%;\
-			height:50%;\
+			top:50px;\
+			left:50px;\
+			width:100px;\
+			height:100px;\
 			color: white;\
 			opacity: 0.5;\
 			background:black;\
-			border-radius:50px;\
-			box-shadow:inset 0 0 1em black;\
+			border-radius:100px;\
+			box-shadow:inset 0 0 5em white;\
 			z-index:999999;\
 		";
 		
@@ -59,29 +62,31 @@ function toggleSidebar() {
 		var sidebar1 = document.createElement('BUTTON');
 		sidebar1.id = "mySidebar1";
 		sidebar1.innerHTML = "\
-			<h1>Hello World!</h1>\
+			<h1>2</h1>\
 		";
 		sidebar1.style.cssText = "\
 			position:fixed;\
-			top:500px;\
-			left:50%;\
-			width:50%;\
-			height:50%;\
+			top:200px;\
+			left:50px;\
+			width:100px;\
+			height:100px;\
 			color: white;\
 			opacity: 0.5;\
-			background:red;\
-			border-radius:50px;\
-			box-shadow:inset 0 0 1em black;\
+			background:black;\
+			border-radius:100px;\
+			box-shadow:inset 0 0 5em white;\
 			z-index:999999;\
 		";
-		
+
+
 		var docFrag = document.createDocumentFragment();
 		docFrag.id = "wholething";
 		docFrag.appendChild(sidebar);
 		docFrag.appendChild(sidebar1);
 		document.body.appendChild(docFrag);
-		
+
 		sidebarOpen = true;
+		hovered = false;
 	}
 }
 
