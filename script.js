@@ -1,3 +1,16 @@
+var cssId = 'greenPulse.css';  // you could encode the css path itself to generate id..
+if (!document.getElementById(cssId))
+{
+    var head  = document.getElementsByTagName('head')[0];
+    var link  = document.createElement('link');
+    link.id   = cssId;
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'http://website.com/css/stylesheet.css';
+    link.media = 'all';
+    head.appendChild(link);
+}
+
 /*Handle requests from background.html*/
 function handleRequest(
 	//The object data with the request params
@@ -38,15 +51,15 @@ function toggleSidebar() {
 
 		var sidebar = document.createElement('BUTTON');
 		sidebar.id = "mySidebar";
-		sidebar.innerHTML = "\
-			<h1>Hello World!</h1>\
-		";
+		// sidebar.innerHTML = "\
+		// 	<h1>Hello World!</h1>\
+		// ";
 		sidebar.style.cssText = "\
 			position:fixed;\
 			top:0px;\
 			left:50%;\
-			width:50%;\
-			height:50%;\
+			width:50px;\
+			height:50px;\
 			color: white;\
 			opacity: 0.5;\
 			background:black;\
@@ -54,7 +67,6 @@ function toggleSidebar() {
 			box-shadow:inset 0 0 1em black;\
 			z-index:999999;\
 		";
-		
 
 		var sidebar1 = document.createElement('BUTTON');
 		sidebar1.id = "mySidebar1";
