@@ -1,12 +1,55 @@
-body{background:black;}
+body{background:black;
+color: white;}
+.mainbody{
+	top: 10px;
+	height: 1000px;
+	width: 1240px;
+}
+
+.myScore{
+	position: absolute;
+	top: 50px;
+	width: auto;
+	height: 50px;
+	left: 50px;
+	padding: 10px;
+	z-index: 99999;
+	text-align: left;
+	font-size: 40px;
+	background-color: green;
+}
+
+.myLevel{
+	position: absolute;
+	top: 130px;
+	width: auto;
+	height: 50px;
+	left: 50px;
+	padding: 10px;
+	z-index: 99999;
+	text-align: left;
+	font-size: 40px;
+	background-color: blue;
+}
+
+
+.parti{font-family:arial, helvetica; 
+	text-align:center;
+	display:block;
+	position:absolute;}
+
+#block {top:0px;right:0px;width:50%}
+
 /* 4 different background colors */
 .c0{background:white;}
 .c1{background:blue;}
 .c2{background:red;}
 .c3{background:purple;}
-/* 5 different sizes */
-.g0{height:46px;width:46px;border-radius:23px;}
-.g1{height:16px;width:16px;border-radius:8px;}
-.g2{height:22px;width:22px;border-radius:11px;}
-.g3{height:28px;width:28px;border-radius:14px;}
-.g4{height:38px;width:38px;border-radius:19px;}
+
+ /*5 different sizes */
+.g0{top:500px;right:50%;height:46px;width:46px;border-radius:23px;}
+.g1{top:500px;right:50%;height:16px;width:16px;border-radius:8px;}
+.g2{top:500px;right:50%;height:22px;width:22px;border-radius:11px;}
+.g3{top:500px;right:50%;height:28px;width:28px;border-radius:14px;}
+.g4{top:500px;right:50%;height:38px;width:38px;border-radius:19px;}
+

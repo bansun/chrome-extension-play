@@ -4,20 +4,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Fish</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<style type="text/css">
-#block {width:50px;height:20px;background:red;}
-</style>
 <script src="../js/jquery-1.7.2.min.js"></script>
 <script src="../js/jquery.moving-bubble.js"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</head>
+<body>
+    <div class="myScore"> Score: 0</div>
+    <div class="myLevel"> Level: 1</div>
+
+
+    <div class="mainbody">
+        <img src="bear.gif" class="block" alt="Bub 1" />
+        <img src="bear.gif" class="block" alt="Bub 3" />
+        <img src="bear.gif" class="block" alt="Bub 4" />
+    </div>
+
+</body>
 <script type="text/javascript">
     $(document).ready(function (e) {
-
+    var currScore = 0;
     //Add random divs as sample....
     //Change numberOfDivs if you want
     var numberOfDivs = 400;
-
     // add x number of divs to page.
     for (var i = 0; i < numberOfDivs; i++) {
         var g = Math.floor(Math.random() * 5);
@@ -28,17 +38,22 @@
         $('body').append(p);
         // $('.parti').movingBubble({ addCss: false });
     }
-    $('.parti').movingBubble().click(function(){$(this).movingBubble('stop').fadeOut(200);});
-	$('.bubble').movingBubble().click(function(){$(this).movingBubble('stop').fadeOut(200);});
-
-	// $('#block').movingBubble({ maxHeight: 400, maxWidth: 300, minDuration: 3000, deltaDuration: 1 }).click(function(){$(this).movingBubble('toggle');});
+    $('.parti').movingBubble().click(function(){
+        $(this).movingBubble('stop').fadeOut(200);
+        currScore -= 1;
+        $('.myScore').html('Score: '+currScore);
+        if (currScore < 0) {
+            alert("Yo! You went to the negative, stop sucking! fool.");
+        }
     });
-</script>
-</head>
-<body>
-<img src="bear.gif" class="bubble" alt="Bub 1" />
-<img src="bear.gif" class="bubble" alt="Bub 3" />
-<img src="bear.gif" class="bubble" alt="Bub 4" />
+    $('.block').movingBubble().click(function(){
+        $(this).movingBubble('stop').fadeOut(200);
+        currScore += 5;
+        $('.myScore').html('Score: '+ currScore);
+    });
 
-</body>
+
+});
+</script>
+
 </html>
