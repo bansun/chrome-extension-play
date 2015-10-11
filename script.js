@@ -1,16 +1,3 @@
-var cssId = 'greenPulse.css';  // you could encode the css path itself to generate id..
-if (!document.getElementById(cssId))
-{
-    var head  = document.getElementsByTagName('head')[0];
-    var link  = document.createElement('link');
-    link.id   = cssId;
-    link.rel  = 'stylesheet';
-    link.type = 'text/css';
-    link.href = 'http://website.com/css/stylesheet.css';
-    link.media = 'all';
-    head.appendChild(link);
-}
-
 /*Handle requests from background.html*/
 function handleRequest(
 	//The object data with the request params
@@ -34,18 +21,20 @@ function toggleSidebar() {
 		// var btn = document.getElementById("mybtn");  
 		// btn.parentNode.removeChild(btn);
 		sidebarOpen = false;
-		var el = document.getElementById('mySidebar');
+		var el = document.getElementById('link');
 		el.parentNode.removeChild(el);
 		var el1 = document.getElementById('mySidebar1');
 		el1.parentNode.removeChild(el1);
 		
 		
 	} else {
-		var sidebar = document.createElement('BUTTON');
+		var image = document.createElement("img");
+		image.src = chrome.extension.getURL("bear.gif");
+		document.getElementsByTagName("body")[0].appendChild(image);
 			sidebar.onclick = function() {
           //Your code here
           	if (clicked) {
-				sidebar.style.backgroundColor = "red";
+				// sidebar.style.backgroundColor = "red";
 				sidebar1.style.visibility = "visible";
           		clicked = false;
           	} else {
@@ -61,13 +50,6 @@ function toggleSidebar() {
 			position:fixed;\
 			top:50px;\
 			left:50px;\
-			width:100px;\
-			height:100px;\
-			color: white;\
-			opacity: 0.5;\
-			background:black;\
-			border-radius:100px;\
-			box-shadow:inset 0 0 5em white;\
 			z-index:999999;\
 		";
 
