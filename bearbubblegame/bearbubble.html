@@ -16,9 +16,10 @@
 
 
     <div class="mainbody">
-        <img src="bear.gif" class="block" alt="Bub 1" />
-        <img src="bear.gif" class="block" alt="Bub 3" />
-        <img src="bear.gif" class="block" alt="Bub 4" />
+        <img src="bear.gif" class="bears" alt="Bub 1" />
+        <img src="bear.gif" class="bears" alt="Bub 3" />
+<!--         <img src="bear.gif" class="bears" alt="Bub 4" />
+        <img src="bear.gif" class="bears" alt="Bub 5" /> -->
     </div>
 
 </body>
@@ -43,15 +44,31 @@
         currScore -= 1;
         $('.myScore').html('Score: '+currScore);
         if (currScore < 0) {
-            alert("Yo! You went to the negative, stop sucking! fool.");
+            alert("Yo! You went to the negative. Stop sucking, foo!");
         }
     });
-    $('.block').movingBubble().click(function(){
+    var counter = $('.bears').length;
+    var lvl = 1;
+    $('.bears').movingBubble().click(function(){
+
         $(this).movingBubble('stop').fadeOut(200);
+        counter--;
+        if (counter == 0) {
+            alert("You did it! On to the next level, foo!");            
+
+            $('.bears').movingBubble();
+            counter = $('.bears').length;
+            lvl++;
+            $('.myLevel').html('Level: '+ lvl);
+        }
         currScore += 5;
         $('.myScore').html('Score: '+ currScore);
-    });
+    
+    });    
 
+    // function stopInterval() {
+    //     clearInterval(intervalID);
+    // } 
 
 });
 </script>

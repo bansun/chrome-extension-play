@@ -1,11 +1,11 @@
 body{background:black;
 color: white;}
-.mainbody{
+/*.mainbody{
 	top: 10px;
 	height: 1000px;
 	width: 1240px;
 }
-
+*/
 .myScore{
 	position: absolute;
 	top: 50px;
@@ -37,8 +37,6 @@ color: white;}
 	text-align:center;
 	display:block;
 	position:absolute;}
-
-#block {top:0px;right:0px;width:50%}
 
 /* 4 different background colors */
 .c0{background:white;}

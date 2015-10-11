@@ -28,17 +28,39 @@
         $('body').append(p);
         // $('.parti').movingBubble({ addCss: false });
     }
+    var counter = 5;
     $('.parti').movingBubble().click(function(){$(this).movingBubble('stop').fadeOut(200);});
-	$('.bubble').movingBubble().click(function(){$(this).movingBubble('stop').fadeOut(200);});
+    $('.bears').each(function() {
+
+        $(this).movingBubble().click(function(){
+
+            if (counter == 1) {
+                alert("counter is " + counter);
+                // $('.bears').append('<img src="bear.gif" width="150" height="150" class="bears" alt="Bear 5"/>');
+                $('.bears').movingBubble();
+                counter = 5;
+            
+        }
+            $(this).movingBubble('stop').fadeOut(200);
+            counter -= 1;
+            // alert("clicked one bear and counter is " + counter);
+
+
+        });
+
+    });
+	
 
 	// $('#block').movingBubble({ maxHeight: 400, maxWidth: 300, minDuration: 3000, deltaDuration: 1 }).click(function(){$(this).movingBubble('toggle');});
     });
 </script>
 </head>
 <body>
-<img src="bear.gif" class="bubble" alt="Bub 1" />
-<img src="bear.gif" class="bubble" alt="Bub 3" />
-<img src="bear.gif" class="bubble" alt="Bub 4" />
+<img src="bear.gif" width="150" height="150" class="bears" alt="Bear 1" />
+<img src="bear.gif" width="100" height="100" class="bears" alt="Bear 2" />
+<img src="bear.gif" width="300" height="300" class="bears" alt="Bear 3" />
+<img src="bear.gif" width="400" height="400" class="bears" alt="Bear 4" />
+<img src="bear.gif" class="bears" alt="Bear 5" />
 
 </body>
 </html>
